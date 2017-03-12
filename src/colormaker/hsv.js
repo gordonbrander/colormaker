@@ -1,13 +1,14 @@
-export {hsv as Hsv} from 'd3-hsv'
-import {hsv as Hsv} from 'd3-hsv'
+export {hsv as readHsv} from 'd3-hsv'
+import {hsv as d3hsv} from 'd3-hsv'
 import {rotateArtistic} from './artistic'
 import {ratio, deg} from './util'
 
-// Adjust an HSV color
-export const adjust = (hsv, degrees, saturate, brighten) => hsv(
-  deg(hsv.h + degrees),
-  ratio(hsv.s + saturate),
-  ratio(hsv.v + brighten)
+// Create an hsv color, clamping ranges to valid values.
+// Returns a d3 hsv color.
+export const Hsv = (h, s, v) => d3hsv(
+  deg(h),
+  ratio(s),
+  ratio(v)
 )
 
 // Rotate an HSV color on the artistic color wheel, then convert back to

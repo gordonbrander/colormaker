@@ -4,7 +4,6 @@ export const copy = object => Object.assign({}, object)
 // Set a `value` at `key` of `object`, returning a new object.
 // However, if `value` does not change, the original object is returned.
 export const set = (object, key, value) => {
-  console.log(object, 'from -> to', key, object[key], value)
   if (object[key] === value) {
     return object
   } else {

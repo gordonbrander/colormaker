@@ -5,7 +5,7 @@ export const View = props => (
 )
 
 export const List = ({model}) => {
-  const items = model.map(color => <View key={color} backgroundColor={color}/>)
+  const items = model.map((color, i) => <View key={i} backgroundColor={color}/>)
   return (
     <div className="swatches">{items}</div>
   )

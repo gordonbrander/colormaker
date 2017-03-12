@@ -11,7 +11,7 @@ export const ForMixer = box('Mixer')
 
 // Init model
 export const init = () => ({
-  color: Hsv.Hsv('#dc5446')
+  color: Hsv.readHsv('#dc5446')
 })
 
 export const update = (model, action) =>
@@ -19,8 +19,7 @@ export const update = (model, action) =>
   ? set(model, 'color', Mixer.update(model.color, action.action))
   : unknown(model, action)
 
-export const View = (model, address) => {
-  const color = Hsv.Hsv(model.color)
+export const View = ({color}, address) => {
   const complementary = Hsv.complementaryHsv(color)
   const triadic = Hsv.triadicHsv(color)
   const tetradic = Hsv.tetradicHsv(color)
@@ -57,7 +56,6 @@ export class App extends Component {
 
   address(action) {
     const next = this.update(this.state, action)
-    console.log(next)
     this.setState(next)
   }
 

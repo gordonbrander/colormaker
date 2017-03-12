@@ -22,17 +22,25 @@ export const update = (model, action) =>
 export const View = (model, address) => {
   const color = Hsv.Hsv(model.color)
   const complementary = Hsv.complementaryHsv(color)
+  const triadic = Hsv.triadicHsv(color)
+  const tetradic = Hsv.tetradicHsv(color)
   const analogous1 = Hsv.analogousHsv(color, 240)
   const analogous2 = Hsv.analogousHsv(color, 120)
   const analogous3 = Hsv.analogousHsv(color, 80)
+  const shades = Hsv.shadesHsv(color)
+  const greyscale = [Hsv.greyscaleHsv(color)]
 
   return (
     <div className="app">
       <Mixer.View address={forward(address, ForMixer)} model={color} />
       <Swatch.List model={complementary} />
+      <Swatch.List model={triadic} />
+      <Swatch.List model={tetradic} />
       <Swatch.List model={analogous1} />
       <Swatch.List model={analogous2} />
       <Swatch.List model={analogous3} />
+      <Swatch.List model={shades} />
+      <Swatch.List model={greyscale} />
     </div>
   )
 }

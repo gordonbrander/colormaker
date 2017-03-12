@@ -19,10 +19,12 @@ html {
   padding: 0;
   list-style: none;
 }
+
 .swatch {
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: bold;
   float: left;
   line-height: 32px;
-  height: 32px;
   padding: 20px;
   width: 200px;
 }

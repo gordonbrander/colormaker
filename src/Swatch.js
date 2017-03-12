@@ -1,7 +1,9 @@
 import React from 'react';
 
 export const View = props => (
-  <div className="swatch" style={props}></div>
+  <div className="swatch" style={props}>
+    {props.backgroundColor.toString()}
+  </div>
 )
 
 export const List = ({model}) => {
